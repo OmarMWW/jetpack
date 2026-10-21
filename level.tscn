@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://teuev6yfx485"]
+
+[ext_resource type="Texture2D" uid="uid://cfpagqe75c8ji" path="res://icon.svg" id="1_u52ul"]
+[ext_resource type="Script" uid="uid://ca6bxtn8tvkfc" path="res://Level.cs" id="1_vonw3"]
+[ext_resource type="PackedScene" uid="uid://c4bscaxjh63c1" path="res://coin.tscn" id="3_oi3di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qlv0"]
+size = Vector2(3825, 715)
+
+[node name="Level" type="StaticBody2D" unique_id=1854605781]
+script = ExtResource("1_vonw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=831570513]
+position = Vector2(1832.5, 297)
+scale = Vector2(29.632813, 5.640625)
+texture = ExtResource("1_u52ul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1474373870]
+position = Vector2(1846.4999, 294.5)
+shape = SubResource("RectangleShape2D_6qlv0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1706704235]
+position = Vector2(1829.5562, -1329.5037)
+scale = Vector2(29.632813, 5.640625)
+texture = ExtResource("1_u52ul")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=159586374]
+position = Vector2(1843.5562, -1332.0037)
+shape = SubResource("RectangleShape2D_6qlv0")
+
+[node name="Coin" parent="." unique_id=813677004 instance=ExtResource("3_oi3di")]
+position = Vector2(981.0928, -709.3869)
+
+[node name="LevelSpawnPoint" type="Marker2D" parent="." unique_id=859816174]
+position = Vector2(3830.0823, -530.07874)
+
+[node name="Timer" type="Timer" parent="." unique_id=2146724667]
+
+[connection signal="Score" from="." to="." method="_on_score"]
+[connection signal="timeout" from="Timer" to="." method="OnSpawnTimer"]

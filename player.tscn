@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://d0h3u23y2thye"]
+
+[ext_resource type="Texture2D" uid="uid://cfpagqe75c8ji" path="res://icon.svg" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://5pto7nymcm2b" path="res://Player.cs" id="1_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qlv0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
+size = Vector2(23.179327, 22.866093)
+
+[node name="Player" type="CharacterBody2D" unique_id=906218543]
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=174508917]
+texture = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=933688446]
+scale = Vector2(6.385, 6.385)
+shape = SubResource("RectangleShape2D_6qlv0")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1464599134]
+offset = Vector2(297.515, 0)
+zoom = Vector2(0.6, 0.6)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1547620928]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1943714102]
+position = Vector2(-3.0000017, -3.000002)
+scale = Vector2(6.385, 6.385)
+shape = SubResource("RectangleShape2D_onrkg")
+
+[connection signal="area_entered" from="Area2D" to="." method="OnAreaEntered"]

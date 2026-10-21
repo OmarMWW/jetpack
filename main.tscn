@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cuwqa0t6syudl"]
+
+[ext_resource type="PackedScene" uid="uid://teuev6yfx485" path="res://level.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cj7jgne4ul14k" path="res://Main.cs" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://d0h3u23y2thye" path="res://player.tscn" id="2_h2yge"]
+
+[node name="Main" type="Node2D" unique_id=907855446]
+script = ExtResource("1_h2yge")
+
+[node name="Level" parent="." unique_id=560414421 instance=ExtResource("1_0xm2m")]
+position = Vector2(-108, 221)
+
+[node name="Player" parent="." unique_id=906218543 instance=ExtResource("2_h2yge")]
+position = Vector2(112.849335, -261.49936)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=761580259]
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=432166691]
+offset_left = 76.0
+offset_top = 53.0
+offset_right = 117.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 71
+text = "0"
+
+[connection signal="CoinCollected" from="Player" to="." method="OnPlayerCoinCollected"]

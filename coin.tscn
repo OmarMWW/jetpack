@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c4bscaxjh63c1"]
+
+[ext_resource type="Texture2D" uid="uid://cfpagqe75c8ji" path="res://icon.svg" id="1_d5gmh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcmbw"]
+size = Vector2(42, 38)
+
+[node name="Coin" type="Area2D" unique_id=813677004]
+position = Vector2(-0.031936646, 0.07255745)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=35503810]
+modulate = Color(18.892157, 18.892157, 0, 1)
+position = Vector2(1.7881393e-07, 5.9604645e-08)
+scale = Vector2(0.32879543, 0.29876947)
+texture = ExtResource("1_d5gmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499315093]
+shape = SubResource("RectangleShape2D_qcmbw")
